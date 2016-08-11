@@ -2,12 +2,18 @@
 
 var express = require("express");
 
-const app = express();
+var port = 8080;
 
-app.get('/', function (req, res) {
+var app = express();
+
+var router = express.Router();
+
+router.get('/', function (req, res) {
   res.send('Hello World!55');
 });
 
-app.listen(8000, function () {
-  console.log('Example app listening on port 8000!');
-});
+app.use('/gg/v1', router);
+
+app.listen(port);
+
+console.log('port' + port);
